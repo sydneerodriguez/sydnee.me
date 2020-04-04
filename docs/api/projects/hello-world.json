@@ -1,0 +1,32 @@
+{
+  "template": "article",
+  "title": "Hello World",
+  "description": "Experimenting with the content templating system.",
+  "date": [2020, 3, 1],
+  "content": [
+    {
+      "type": "image",
+      "content": "business-card-mockup-textured-sydnee-1280.jpg"
+    },
+    {
+      "type": "paragraph",
+      "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ut turpis eu dolor imperdiet lobortis in dignissim tellus. Aenean sed placerat diam. Pellentesque lorem tortor, tristique at neque eu, pellentesque sollicitudin odio. Maecenas id rhoncus nunc, ut rhoncus nibh. Phasellus vestibulum erat vel facilisis molestie. Aenean sit amet magna et leo rhoncus scelerisque interdum id quam. Morbi arcu nisi, commodo eu eros sed, maximus tempus diam."
+    },
+    {
+      "type": "paragraph",
+      "content": "Aenean lacinia quam nec quam interdum, eu commodo ex tincidunt. Suspendisse porttitor luctus tortor vel rutrum. Nulla facilisi. Donec eu nunc et lectus venenatis consectetur non at dolor. Nulla venenatis maximus lorem id gravida. Donec vulputate laoreet ultrices. Praesent pulvinar porta dolor, at egestas nisi porta id."
+    },
+    {
+      "type": "paragraph",
+      "content": "Aliquam ante eros, blandit quis dignissim in, luctus nec turpis. In hac habitasse platea dictumst. Suspendisse odio nisl, blandit hendrerit velit at, lacinia tincidunt erat. Morbi aliquam leo id velit viverra, in sagittis lacus vehicula. Proin eu quam tortor. Nulla aliquet lectus a nibh sodales, nec pellentesque tellus mollis. Donec velit diam, mattis id ligula id, scelerisque pretium tellus. Ut sit amet pharetra mi. Aenean sit amet molestie nibh. Nam vulputate risus vel lacinia lacinia. Pellentesque sodales fringilla laoreet. Sed interdum sed ligula ac tincidunt. Praesent ut nisi at sapien eleifend sollicitudin. In tempor arcu sit amet est consequat luctus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec venenatis bibendum turpis, nec iaculis tortor."
+    },
+    {
+      "type": "paragraph",
+      "content": "Nullam mollis, dolor ut fermentum convallis, diam libero finibus ligula, vel interdum lorem metus dictum nunc. In efficitur interdum turpis id suscipit. Maecenas vel diam volutpat, pulvinar tellus quis, luctus lectus. Cras a lorem pharetra, ultricies nulla at, ultricies arcu. Nulla cursus sed orci non dignissim. Phasellus elementum vel eros vel fringilla. Pellentesque sed leo ligula. Integer tempus vel ex et pretium. Maecenas tempor erat quis dictum pretium. Vivamus faucibus dignissim consequat. Etiam tincidunt iaculis orci et lacinia. Aenean condimentum, sem at rutrum placerat, velit sapien cursus quam, vitae lobortis erat orci non dui. Sed a quam ex."
+    },
+    {
+      "type": "paragraph",
+      "content": "Ut maximus a dui eu pretium. Sed eu hendrerit ligula. Aenean eget ante mattis, euismod est id, rhoncus urna. Ut sed dictum diam, vel eleifend erat. Aliquam pellentesque ante a elit tincidunt, et pellentesque est efficitur. Nunc aliquam, neque nec commodo facilisis, felis nisl molestie leo, et feugiat tellus erat ut arcu. Aenean dui lacus, interdum egestas vulputate sit amet, ultricies nec nisi. Mauris et quam nec massa fermentum laoreet. Integer interdum libero ultrices mi pharetra interdum. In hac habitasse platea dictumst. Vivamus ut efficitur purus. Sed elementum leo cursus, rhoncus justo quis, auctor purus. In vitae felis et elit varius eleifend sed ac dolor. Vestibulum rutrum felis non lorem tincidunt, non suscipit diam fermentum. Quisque finibus gravida ipsum eu vulputate."
+    }
+  ]
+}

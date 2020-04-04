@@ -1,0 +1,8 @@
+{
+  "[json]": {
+    "editor.wordWrap": "bounded"
+  },
+  "[vue]": {
+    "editor.wordWrap": "bounded"
+  }
+}
