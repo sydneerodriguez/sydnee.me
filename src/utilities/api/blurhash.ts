@@ -1,8 +1,11 @@
 export interface Blurhash {
   [asset: string]: {
+    fh: number;
+    fw: number;
+    sh: number;
+    sw: number;
     hash: string;
-    height: number;
-    width: number;
+    sha1: string;
   };
 }
 

@@ -1,15 +1,22 @@
 <template>
-  <div>
-    <BlurHash
-      v-if="blurhash && !loaded"
-      v-bind:hash="blurhash.hash"
-      v-bind:width="blurhash.width"
-      v-bind:height="blurhash.height"
-    />
+  <div
+    class='asset'
+    v-bind:style="dimensions"
+  >
     <img
-      ref="image"
-      v-bind:class="{ loaded }"
-      v-bind:src="src"
+      ref='image'
+      v-bind:src='this.src'
+      v-bind:width="dimensions.width"
+      v-bind:height="dimensions.height"
+      v-on:load='shouldTransition = true'
+      decoding='async'
+      loading='lazy'
+    />
+    <BlurHash
+      v-if='!transitionEnded'
+      v-bind='blurhash'
+      v-bind:class='{ transition: shouldTransition }'
+      v-on:transitionend='transitionEnded = true'
     />
   </div>
 </template>
@@ -30,7 +37,8 @@ import BlurHash from '@/components/BlurHash.vue'
   },
 })
 export default class Asset extends Vue {
-  loaded = false
+  shouldTransition = false
+  transitionEnded = false
 
   get src () {
     return `${process.env.BASE_URL}assets/${this.$props.file}`
@@ -40,19 +48,30 @@ export default class Asset extends Vue {
     return store.getBlurhash(this.$props.file)
   }
 
-  mounted () {
-    const image = this.$refs.image as HTMLImageElement
-    image.decode()
-      .then(() => (this.loaded = true))
+  get dimensions () {
+    return {
+      width: this.blurhash?.fw + 'px',
+      height: this.blurhash?.fh + 'px',
+    }
   }
 }
 </script>
 
 <style scoped>
-img {
-  display: none;
+.asset {
+  position: relative;
 }
-.loaded {
-  display: initial;
+
+.asset > * {
+  position: absolute;
+}
+
+.asset canvas {
+  opacity: 1;
+  transition: all 0.5s;
+}
+
+.transition {
+  opacity: 0 !important;
 }
 </style>

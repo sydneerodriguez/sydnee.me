@@ -1,6 +1,6 @@
 <template>
   <span>
-    {{timestamp.toString()}}
+    {{timestamp}}
   </span>
 </template>
 
@@ -10,15 +10,19 @@ import Component from 'vue-class-component'
 
 @Component({
   props: {
-    date: Array,
+    start: String,
+    end: String,
   },
 })
 export default class Date extends Vue {
   get timestamp () {
-    return new window.Date(
-      this.$props.date[0],
-      this.$props.date[1] - 1,
-      this.$props.date[2],
+    return new Intl.DateTimeFormat(undefined, {
+      // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
+      // @ts-ignore
+      dateStyle: 'long',
+    }).formatRange(
+      new window.Date(this.$props.start),
+      new window.Date(this.$props.end || this.$props.start),
     )
   }
 }

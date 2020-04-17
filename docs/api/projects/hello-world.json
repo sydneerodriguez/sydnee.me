@@ -2,7 +2,11 @@
   "template": "article",
   "title": "Hello World",
   "description": "Experimenting with the content templating system.",
-  "date": [2020, 3, 1],
+  "date": {
+    "start": "2020-03-01",
+    "end": "2020-03-01"
+  },
+  "duration": "",
   "content": [
     {
       "type": "image",

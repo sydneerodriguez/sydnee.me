@@ -2,7 +2,7 @@
   <div v-if="project">
     <Title>{{project.title}}</Title>
     <Description>{{project.description}}</Description>
-    <Date v-bind:date="project.date" />
+    <Date v-bind="project.date" />
     <Content
       v-for="(content, id) in project.content"
       v-bind="content"

@@ -1,17 +1,26 @@
 {
   "business-card-mockup-textured-sydnee-1280.jpg": {
-    "width": 1280,
-    "height": 896,
-    "hash": "LmM?oJ*J=|xu%2tRWBM{%LtRIoMx"
+    "fw": 1280,
+    "fh": 896,
+    "sw": 64,
+    "sh": 45,
+    "hash": "LoMsf;*J?Gx]%2tRWVRP-ptRIoMx",
+    "sha1": "pJRAyvqVYDNVg0U+NswAqmNDQyI="
   },
   "business-card-mockup-textured-sydnee-1920.jpg": {
-    "width": 1920,
-    "height": 1344,
-    "hash": "LmM?oJ*J=|xu%2tRWBM{%LtRIoMx"
+    "fw": 1920,
+    "fh": 1344,
+    "sw": 64,
+    "sh": 45,
+    "hash": "LoMsf;*J?Gx]%2tRWVRP-ptRIoMx",
+    "sha1": "jlY6sLZ9ANqLM7gdVJuNauMmrLk="
   },
   "business-card-mockup-textured-sydnee-3000.jpg": {
-    "width": 3000,
-    "height": 2100,
-    "hash": "LlM%7r*J=|x]%2tRWBM{-ptRIoMx"
+    "fw": 3000,
+    "fh": 2100,
+    "sw": 64,
+    "sh": 45,
+    "hash": "LoMsf;*J?Gx]%2tRWVRP-ptRIoMx",
+    "sha1": "JVkNL3eMeb6yVnUVgKG0vJLd6no="
   }
 }

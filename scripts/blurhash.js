@@ -1,56 +1,49 @@
-// @ts-check
-/* eslint-disable @typescript-eslint/no-var-requires */
 const blurhash = require('blurhash')
-const { createCanvas, loadImage } = require('canvas')
 const fs = require('fs').promises
 const path = require('path')
+const Jimp = require('jimp')
 
-const BASE_URL = path.join(process.cwd(), 'public')
+const { walk, getSHA1 } = require('./utilities')
+
+const resolve = (...segments) => path.resolve(process.cwd(), ...segments)
 
 /**
- * @param {string} directory
+ * @param {string} images
+ * @param {string} output
  */
-async function * walk (directory) {
-  const stats = await fs.opendir(path.resolve(BASE_URL, directory))
+const entrypoint = exports.blurhash = async (
+  images = 'public/assets',
+  output = 'public/api/blurhash.json'
+) => {
+  const json = require(resolve(output))
 
-  for await (const stat of stats) {
-    if (stat.isDirectory()) {
-      yield * walk(path.join(directory, stat.name))
-    } else if (stat.isFile()) {
-      yield path.join(directory, stat.name)
-    }
-  }
-}
+  for await (const filepath of walk(resolve(images))) {
+    const name = filepath.substring(resolve(images).length + 1).replace(/\\/g, '/')
+    const buffer = await fs.readFile(filepath)
+    const sha1 = getSHA1(buffer)
 
-const entrypoint = async (directory = 'assets', output = 'api/blurhash.json') => {
-  const result = {}
+    if (name in json && json[name].sha1 === sha1) continue
 
-  for await (const filename of walk(directory)) {
-    const filepath = path.join(BASE_URL, filename)
-    console.log(filepath)
+    console.time(name)
+    const fi = await Jimp.read(buffer)
+    const fw = fi.getWidth()
+    const fh = fi.getHeight()
+    const si = fi.scaleToFit(64, 64)
+    const sw = si.getWidth()
+    const sh = si.getHeight()
+    const hash = blurhash.encode(si.bitmap.data, sw, sh, 4, 3)
 
-    console.time('load')
-    const image = await loadImage(filepath)
-    const canvas = createCanvas(image.width, image.height)
-    const ctx = canvas.getContext('2d')
-    ctx.drawImage(image, 0, 0)
-    const data = ctx.getImageData(0, 0, image.width, image.height).data
-    console.timeEnd('load')
-
-    console.time('blur')
-    const hash = blurhash.encode(data, image.width, image.height, 4, 3)
-    console.timeEnd('blur')
-
-    const key = filename.substring(directory.length + 1).replace(/\\/g, '/')
-    result[key] = {
-      width: image.width,
-      height: image.height,
-      hash,
-    }
+    json[name] = { fw, fh, sw, sh, hash, sha1 }
+    console.timeEnd(name)
   }
 
-  await fs.writeFile(path.join(BASE_URL, output), JSON.stringify(result, null, 2))
+  await fs.writeFile(resolve(output), JSON.stringify(json, null, 2))
 }
 
-entrypoint(...process.argv.splice(2))
-  .catch(console.error)
+if (!module.parent) {
+  entrypoint(...process.argv.splice(2))
+    .catch((error) => {
+      console.error(error)
+      process.exit(1)
+    })
+}
