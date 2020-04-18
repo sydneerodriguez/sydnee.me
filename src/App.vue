@@ -24,8 +24,21 @@ export default Vue.extend({
 </script>
 
 <style scoped>
+  #app {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow-x: none;
+  }
+
+  header,
+  footer {
+    flex-shrink: 0;
+  }
+
   main {
     margin-top: 100px;
+    flex-grow: 1;
   }
 </style>
 
@@ -38,7 +51,7 @@ export default Vue.extend({
     font-family: 'Roboto';
     font-size: 16px;
 
-    overflow-x: none;
+    overflow-x: hidden;
     width: 100vw;
   }
 </style>
