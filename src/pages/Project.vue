@@ -14,12 +14,12 @@
 <script lang='ts'>
 import Vue from 'vue'
 import Component from 'vue-class-component'
-import { store } from '@/store'
+import { store } from '../store'
 
-import Title from '@/components/Title.vue'
-import Description from '@/components/Description.vue'
-import Date from '@/components/Date.vue'
-import Content from '@/components/Content.vue'
+import Title from '../components/Title.vue'
+import Description from '../components/Description.vue'
+import Date from '../components/Date.vue'
+import Content from '../components/Content.vue'
 
 @Component({
   components: {

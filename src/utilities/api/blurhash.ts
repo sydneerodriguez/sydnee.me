@@ -10,7 +10,7 @@ export interface Blurhash {
 }
 
 export const getBlurhashPath = () =>
-  `${process.env.BASE_URL}api/blurhash.json`
+  `/api/blurhash.json`
 
 export const loadBlurhash = async (): Promise<Blurhash> => {
   const response = await fetch(getBlurhashPath())

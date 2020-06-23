@@ -2,8 +2,8 @@
 import Vue from 'vue'
 import Component from 'vue-class-component'
 
-import Asset from '@/components/Asset.vue'
-import Paragraph from '@/components/Paragraph.vue'
+import Asset from './Asset.vue'
+import Paragraph from './Paragraph.vue'
 
 @Component({
   props: {

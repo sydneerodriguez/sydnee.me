@@ -25,8 +25,8 @@
 import Vue from 'vue'
 import Component from 'vue-class-component'
 
-import { store } from '@/store'
-import BlurHash from '@/components/BlurHash.vue'
+import { store } from '../store'
+import BlurHash from './BlurHash.vue'
 
 @Component({
   props: {
@@ -41,7 +41,7 @@ export default class Asset extends Vue {
   transitionEnded = false
 
   get src () {
-    return `${process.env.BASE_URL}assets/${this.$props.file}`
+    return `/assets/${this.$props.file}`
   }
 
   get blurhash () {

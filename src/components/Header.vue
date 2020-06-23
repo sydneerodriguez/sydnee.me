@@ -9,8 +9,8 @@
 import Vue from 'vue'
 import Component from 'vue-class-component'
 
-import Title from '@/components/Title.vue'
-import Navigation from '@/components/Navigation.vue'
+import Title from './Title.vue'
+import Navigation from './Navigation.vue'
 
 @Component({
   components: {

@@ -16,7 +16,7 @@
 import Vue from 'vue'
 import Component from 'vue-class-component'
 
-import Paragraph from '@/components/Paragraph.vue'
+import Paragraph from '../components/Paragraph.vue'
 
 @Component({
   components: {

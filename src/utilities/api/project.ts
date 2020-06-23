@@ -19,7 +19,7 @@ export interface Project {
 }
 
 const getProjectPath = (id: string): string =>
-  `${process.env.BASE_URL}api/projects/${id}.json`
+  `/api/projects/${id}.json`
 
 export const loadProject = async (id: string): Promise<Project> => {
   const response = await fetch(getProjectPath(id))

@@ -1,5 +1,5 @@
 import Vue, { ComponentOptions } from 'vue'
-import { loadProject, Project, loadBlurhash, Blurhash, loadProjectList, ProjectList } from '@/utilities/api'
+import { Blurhash, loadBlurhash, loadProject, loadProjectList, Project, ProjectList } from './utilities/api'
 
 interface State {
   blurhash: Blurhash;
